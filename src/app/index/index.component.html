@@ -1,0 +1,113 @@
+<app-header activeTab="1"></app-header>
+
+<div class="container">
+
+  <div class="row" *ngIf="firstRecommend">
+    <div class="col-sm-12">
+      <section class="col-sm-12 index-header card game-card">
+        <div class="recommend-header visible-xs-block visible-sm-block">
+          <a href="#">
+            <img src="./assets/img/avatar/user_1_avatar.jpg" alt="">
+          </a>
+          <span>来自编辑推荐</span>
+        </div>
+        <a [routerLink]="'/detail/'+firstRecommend.gid" class="recommend-title  visible-xs-inline visible-sm-inline">{{firstRecommend.title}}</a>
+        <a [routerLink]="'/detail/'+firstRecommend.gid" class="recommend-image">
+          <img [src]="firstRecommend.image">
+        </a>
+        <p class="recommend-intro  visible-xs-block visible-sm-block">{{firstRecommend.intro}}</p>
+      </section>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="recommendList.length>0">
+    <div class="col-sm-12">
+
+      <section class="index-page-left col-md-8">
+        <div *ngFor="let tmp of recommendList" class="card game-card">
+            <div class="recommend-header">
+              <a href="#">
+                <img src="./assets/img/avatar/user_1_avatar.jpg" alt="">
+              </a>
+              <span>来自编辑推荐</span>
+            </div>
+            <a [routerLink]="'/detail/'+tmp.gid" class="recommend-title">{{tmp.title}}</a>
+            <a [routerLink]="'/detail/'+tmp.gid" class="recommend-image">
+              <img [src]="tmp.image">
+            </a>
+            <p class="recommend-intro">{{tmp.intro}}</p>
+        </div>
+        <button class="btn btn-primary btn-lg" *ngIf="hasMoreRecommend" (click)="getRecommend()">加载更多</button>
+      </section>
+
+      <section class="index-page-right col-md-4 hidden-xs hidden-sm">
+        <section class="social-spread card">
+          <img src="./assets/img/utility/weicharQR.jpg">
+          <div>
+            <div></div>
+            <p>欢迎关注mytap</p>
+            <ul>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="index-tops">
+          <div class="section-title">
+            <h3 >排行榜</h3>
+            <a href="#">更多</a>
+          </div>
+          <div class="index-tops-contents card">
+            <ul class="nav nav-tabs">
+              <li [ngClass]="{'active':indexType==0}">
+                <a (click)="getIndexTops(0)">综合</a>
+              </li>
+              <li [ngClass]="{'active':indexType==1}">
+                <a (click)="getIndexTops(1)">安卓</a>
+              </li>
+              <li [ngClass]="{'active':indexType==2}">
+                <a (click)="getIndexTops(2)">苹果</a>
+              </li>
+            </ul>
+            <ul class="tap-content">
+              <li *ngFor="let tmp of indexTops;let myIndex=index">
+                <span>{{myIndex+1}}</span>
+                <a [routerLink]="'/detail/'+tmp.gid">
+                  <img [src]="tmp.gicon_100">
+                </a>
+                <div class="item-text">
+                  <a [routerLink]="'/detail/'+tmp.gid">{{tmp.gname}}</a>
+                  <div>
+                    <span *ngIf="indexType==0">{{tmp.gscore}}</span>
+                    <span *ngIf="indexType==1">{{tmp.gscore_andriod}}</span>
+                    <span *ngIf="indexType==2">{{tmp.gscore_ios}}</span>
+                    <span class="glyphicon glyphicon-star"></span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+            
+          </div>
+        </section>
+        <!-- <section class="index-reviews">
+          <div class="section-title">
+            <h3 >最新评价</h3>
+            <a href="#">更多</a>
+          </div>
+        </section>
+        <section class="index-spread">
+          <div class="section-title">
+            <h3 >热门标签</h3>
+          </div>
+        </section> -->
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

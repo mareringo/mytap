@@ -1,0 +1,275 @@
+a {
+  color: #000;
+  &:hover {
+    color: #000;
+  }
+}
+.index-header.game-card {
+  margin: 0;
+  padding: 0 15px 15px;
+}
+@media (min-width:992px) {
+  .index-header.game-card {
+    padding-bottom: 0;
+    box-shadow: none;
+    .recommend-image {
+      margin-bottom:0;
+      
+    }
+  }
+}
+
+.game-card {
+  margin: 0 0 15px;
+  padding: 0 15px 15px;
+  .recommend-header {
+    padding-top: 12px;
+    padding-bottom: 6px;
+    > a > img {
+      border-radius: 5px;
+      width: 20px;
+      height: 20px;
+    }
+    > span {
+      margin-left: 5px;
+      font-size: 12px;
+      line-height: 20px;
+      color: #999;
+    }
+  }
+  .recommend-title {
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 6px;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .recommend-image {
+    display: block;
+    position: relative;
+    margin: 0 -15px 4px;
+    overflow: hidden;
+    text-decoration: none;
+    // line-height: 20px;
+    > img {
+      width: 100%;
+    }
+  
+  }
+  .recommend-intro {
+      margin-top: 15px;
+      margin-bottom: 0;
+      max-height: 40px;
+      color: #999;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
+}
+
+
+.index-page-left {
+  padding-left: 0;
+  padding-right: 30px;
+  margin-top:15px;
+  
+  @media (max-width:991px) {
+    padding-right: 0;
+  }
+  
+  > button {
+    margin: 35px auto 0px;
+    display: block
+  }
+}
+
+.index-page-right {
+  padding: 0;
+  margin-top: 15px;
+  
+  .index-tops {
+    margin: 0 0 20px;
+    > div.index-tops-contents {
+      background-color: #f8f8f8;
+      > ul.nav.nav-tabs {
+        margin: 0;
+        float: right;
+        border: none;
+        height: 800px;
+        > li {
+          writing-mode: vertical-rl;
+          float: none;
+          > a {
+            color: @main-color;
+            margin: 10px 9px;
+            padding: 3px 2px 3px 1px;
+            border: 1px solid @main-color;
+            cursor: pointer;
+            border-radius: 0; 
+
+          }
+        }
+        > li.active {
+          background-color: #fff;
+          box-shadow: 0 2px 0 0 rgba(0,0,0,.1);
+          > a {
+            background-color: @main-color;
+            color: #fff;
+            cursor: default;
+          }
+        }
+      }
+
+      
+    }
+  }
+}
+
+.tap-content {
+  background-color: #fff;
+  padding-left: 10px;
+  padding-right: 20px;
+  box-shadow: 1px 0 2px 0 rgba(0,0,0,.1);
+  margin-bottom: 0;
+  @media (max-width:1200px) {
+    width: 270px;
+  }
+  @media (min-width:1200px) {
+    width: 304px;
+  }
+  > li {
+    padding: 15px 0;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    > span {
+      display: inline-block;
+      width: 20px;
+      line-height: 20px;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 16px;
+      color: #999;
+    }
+    &:nth-child(-n+3) > span {
+      color: #FE931B;
+    }
+    > a {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      vertical-align: middle;
+      > img {
+        width: 100%
+      }
+    }
+    > div.item-text {
+      display: inline-block;
+      position: relative;
+      margin: 5px;
+      width: 161px;
+      vertical-align: middle;
+      a > {
+        -webkit-box-flex: 1;
+        flex: auto;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      > div {
+        color: #999;
+      }
+    }
+  }
+}
+
+.social-spread{
+  margin-bottom: 20px;
+  padding: 10px;
+  > img {
+    width: 100px;
+    display: block;
+    float: left;
+  }
+  > div {
+    float: left;
+    > div {
+      width: 175px;
+      height: 25px;
+      margin: 5px auto;
+      background: url('../img/utility/footer_spirit.png') 0px -360px;;
+      background-size: 177px;
+    } 
+    > p {
+      margin-left: 10px;
+      color: #777;
+      font-size: 12px;
+      line-height: 20px;
+
+    } 
+    > ul {
+      margin: 10px 0 0;
+      padding: 0;
+      width: 100%;;
+      text-align: center;
+      > li {
+        display: inline-block;
+        > a {
+          display: inline-block;
+          width: 30px;
+          height: 30px;
+          margin: 0 2px;
+          border-radius: 50%;
+        }
+
+        &:nth-of-type(1) > a {
+          background: url('../img/utility/footer_spirit.png') 0px -26.2px;
+          background-size: 90px;
+          &:hover {
+            background: url('../img/utility/footer_spirit.png') -31px -26.2px;
+            background-size: 90px;
+          }
+        }
+        &:nth-of-type(2) > a {
+          background: url('../img/utility/footer_spirit.png') 0px -57.7px;
+          background-size: 90px;
+          &:hover {
+            background: url('../img/utility/footer_spirit.png') -31px -57.7px;
+            background-size: 90px;
+          }
+        }
+        &:nth-of-type(3) > a {
+          background: url('../img/utility/footer_spirit.png') 0px -152.2px;
+          background-size: 90px;
+          &:hover {
+            background: url('../img/utility/footer_spirit.png') -31px -152.2px;
+            background-size: 90px;
+          }
+        }
+        &:nth-of-type(4) > a {
+          background: url('../img/utility/footer_spirit.png') 0px -89.2px;
+          background-size: 90px;
+          &:hover {
+            background: url('../img/utility/footer_spirit.png') -31px -89.2px;
+            background-size: 90px;
+          }
+        }
+        &:nth-of-type(5) > a {
+          background: url('../img/utility/footer_spirit.png') 0px -120.7px;
+          background-size: 90px;
+          &:hover {
+            background: url('../img/utility/footer_spirit.png') -31px -120.7px;
+            background-size: 90px;
+          }
+        }
+      }
+    }
+  }
+  @media (min-width:1200px) {
+    > div{
+      margin-left: 15px;
+    }
+  }
+}

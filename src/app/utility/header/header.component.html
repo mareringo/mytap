@@ -1,0 +1,51 @@
+<nav class="navbar navbar-default" id="navbar">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+          <ul class="nav navbar-nav navbar-right visible-xs-inline-block">
+              <li class="navbar-notice navbar-search"><a href="#"><span class="glyphicon glyphicon-search" aria-label="消息"></span></a></li>
+              <li *ngIf="isUserLogin" class="navbar-notice"><a href="#"><span class="glyphicon glyphicon-bell" aria-label="消息"></span></a></li>
+              <li class="navbar-user">
+                <a (click)="avatarClick()" class="img-circle">
+                  <img [src]="userAvatar" alt="default_avatar">
+                </a>
+              </li>
+            </ul>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">展开或折叠导航栏</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+          <a routerLink="/index" class="navbar-brand"><img src="./assets/img/utility/logo_new.png" alt="logo"></a>
+        
+      </div>
+  
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-left">
+          <li [ngClass]="{'active':activeTab==1}"><a routerLink="/index">首页<span class="sr-only">(current)</span></a></li>
+          <li [ngClass]="{'active':activeTab==2}"><a routerLink="/tops">排行</a></li>
+          <li [ngClass]="{'active':activeTab==3}"><a routerLink="/notfound">发现</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right hidden-xs">
+          <li *ngIf="isUserLogin" class="navbar-notice"><a href="#"><span class="glyphicon glyphicon-bell" aria-label="消息"></span></a></li>
+          <li class="navbar-user">
+            <a (click)="avatarClick()" class="img-circle">
+              <img [src]="userAvatar" alt="default_avatar">
+            </a>
+            <ul class="dropdown-menu" [ngClass]="{'open':showAvatarDorpdown}">
+              <li><a >个人中心</a></li>
+              <li><a >我的收藏</a></li>
+              <li><a (click)="logout()" >退出登陆</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-right hidden-xs">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="搜索...">
+          </div>
+        </form>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>

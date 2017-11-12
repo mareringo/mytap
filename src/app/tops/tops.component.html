@@ -1,0 +1,109 @@
+<app-header activeTab="2"></app-header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <section class="top-image">
+        <h1>Top 100</h1>
+        <h3>排行榜</h3>
+      </section>
+    </div>
+  </div>
+  <div class="row tops-type">
+
+    <div class="col-sm-6 col-xs-12">
+      <h4>请选择游戏类型</h4>
+      <div class="btn-group">
+          
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <ng-container *ngIf="topsFamily==0">所有类型</ng-container>
+            <ng-container *ngIf="topsFamily==1">角色扮演</ng-container>
+            <ng-container *ngIf="topsFamily==2">益智</ng-container>
+            <ng-container *ngIf="topsFamily==3">休闲</ng-container>
+            <ng-container *ngIf="topsFamily==4">卡牌</ng-container>
+            <ng-container *ngIf="topsFamily==5">策略</ng-container>
+            <ng-container *ngIf="topsFamily==6">动作</ng-container>
+            <ng-container *ngIf="topsFamily==7">音乐</ng-container>
+            <ng-container *ngIf="topsFamily==8">冒险</ng-container>
+            <ng-container *ngIf="topsFamily==9">街机</ng-container>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a (click)="getIndexTops(topsType, 0, true)">所有类型</a></li>
+            <li><a (click)="getIndexTops(topsType, 1, true)">角色扮演</a></li>
+            <li><a (click)="getIndexTops(topsType, 2, true)">益智</a></li>
+            <li><a (click)="getIndexTops(topsType, 3, true)">休闲</a></li>
+            <li><a (click)="getIndexTops(topsType, 4, true)">卡牌</a></li>
+            <li><a (click)="getIndexTops(topsType, 5, true)">策略</a></li>
+            <li><a (click)="getIndexTops(topsType, 6, true)">动作</a></li>
+            <li><a (click)="getIndexTops(topsType, 7, true)">音乐</a></li>
+            <li><a (click)="getIndexTops(topsType, 8, true)">冒险</a></li>
+            <li><a (click)="getIndexTops(topsType, 9, true)">街机</a></li>
+          </ul>
+        </div>
+      </div>
+    
+      <div class="col-sm-6 col-xs-12">
+      <h4>选择榜单类型</h4>
+      <div class="btn-group">
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <ng-container *ngIf="topsType==0">综合</ng-container>
+        <ng-container *ngIf="topsType==1">Android</ng-container>
+        <ng-container *ngIf="topsType==2">IOS</ng-container>  
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu">
+        <li><a (click)="getIndexTops(0, topsFamily, true)">综合</a></li>
+        <li><a (click)="getIndexTops(1, topsFamily, true)">Android</a></li>
+        <li><a (click)="getIndexTops(2, topsFamily, true)">IOS</a></li>
+      </ul>
+    </div>
+  </div>
+
+    
+
+  </div>
+
+  <div class="row" *ngIf="topsList.length>0">
+    <div class="col-sm-12">
+      <section class="app-top-list">
+        <div class="top-card card" *ngFor="let tmp of topsList;let myIndex=index">
+          <div class="top-card-left">
+            <a class="top-card-left-img" [routerLink]="'/detail/'+tmp.gid">
+              <img [src]="tmp.gicon_360">
+            </a>
+            <a [routerLink]="'/detail/'+tmp.gid" class="btn btn-primary">详情</a>
+          </div>
+          <div class="top-card-middle">
+            <a [routerLink]="'/detail/'+tmp.gid" class="card-middle-title">
+              <h4>{{tmp.gname}}</h4>
+            </a>
+            <p class="card-middle-dev">
+              <a onClick="alert('功能正在开发中')">{{tmp.dname}}</a>
+            </p>
+            <p [innerHTML]="tmp.gintro"  class="card-middle-intro"></p>
+            <div class="card-middle-footer">
+              <a [routerLink]="'/tops/'+tmp.fid">{{tmp.fname}}</a>
+              <span *ngIf="topsType==0">综合评分：{{tmp.gscore}}</span>
+              <span *ngIf="topsType==1">安卓评分：{{tmp.gscore_andriod}}</span>
+              <span *ngIf="topsType==2">苹果评分：{{tmp.gscore_ios}}</span>
+            </div>
+          </div>
+          <div class="top-card-right hidden-xs">
+            <a *ngFor="let img of tmp.gtop_img" [routerLink]="'/detail/'+tmp.gid">
+              <img [src]="img">
+            </a>
+          </div>
+          
+            <span class="top-card-order-triangle"></span>
+            <span class="top-card-order-text">{{myIndex+1}}</span>
+        
+        </div>
+
+        <button class="btn btn-primary btn-lg" *ngIf="hasMoreRecommend" (click)="getIndexTops(topsType, topsFamily, false)">加载更多</button>
+      </section>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

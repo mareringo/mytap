@@ -1,0 +1,230 @@
+.navbar {
+  margin-bottom: 10px;
+  min-height: 50px;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+  padding-top: 6px;
+  padding-bottom: 7px;
+  &:hover,&:focus {
+    background-color: transparent;
+  }
+  .icon-bar {
+    width: 27px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: #fff;
+    + .icon-bar {
+      margin-top: 5px;
+    }
+  }
+}
+@media (max-width:767px) {
+  .navbar-default .navbar-toggle {
+    margin-top:8px;
+    margin-bottom: 8px;
+  }
+}
+
+.navbar-brand {
+  padding:19px 15px;
+  > img {
+    height: 42px;
+  }
+}
+@media (min-width:768px) and (max-width:991px) {
+  .navbar-brand {
+    padding:23px 20px;
+    height: 80px;
+    > img {
+      height: 34px;
+    }
+  }
+}
+
+
+
+.navbar-default {
+  border: none;
+  .navbar-nav.navbar-left {
+    > li {
+      > a {
+        padding: 30px 0;
+        width: 90px;
+        text-align: center;
+        font-size: 16px;
+        color: @custom-color-white;
+
+        &:hover {
+          color: @custom-color-white;
+          background-color: @navbar-custom-color-hover;
+        }
+        &:focus {
+          color: @custom-color-white;
+        }
+      }
+      @media (min-width:768px) and (max-width:991px) {
+        > a {
+          width:70px;
+          font-size: 14px;
+        }
+      }
+    }
+    > .active > a {
+      color: @custom-color-white;
+      background-color: @navbar-custom-color-active;
+
+      &:hover,
+      &:focus {
+        color: @custom-color-white;
+        background-color: @navbar-default-link-active-bg;
+      }
+    }
+  }
+
+  .navbar-nav.navbar-right {
+    > li.navbar-user > a {
+      display: block;
+      margin: 17px 0;
+      padding: 0;
+      width: 46px;
+      height: 46px;
+      text-align: center;
+      color: @custom-color-white;
+      border: 2px solid @custom-color-white;
+      background: @custom-color-white;
+      overflow: hidden;
+      cursor: pointer;
+      > img {
+        width: 100%;
+        vertical-align: middle;
+      }
+    }
+    > li.navbar-notice > a {
+      width: 50px;
+      height: 20px;
+      > .glyphicon {
+        color: darken(@navbar-default-color, 8%);
+
+        &:hover,
+        &:focus {
+          color: darken(@navbar-default-color, 8%);          
+        }
+        &:before {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+.navbar-form .form-group .form-control {
+  padding: 5px 15px 5px 38px;
+  margin-right: 35px;
+  width: 250px;
+  height: 32px;
+  color: @navbar-custom-color-active;
+  border-radius: 18px;
+  border: none;
+  background: lighten(@navbar-default-link-active-bg, 50%);
+  &.active {
+    background: @custom-color-white;
+  }
+}
+@media (min-width:768px) and (max-width:991px) {
+  .navbar-form .form-group .form-control {
+    width: 200px;
+  }
+}
+
+@media (max-width:767px) {
+  .navbar-toggle {
+    float: left;
+    margin-right: 0;
+  }
+  .navbar-brand {
+    padding:9px 10px 9px 0px;
+    height: 50px;
+    > img {
+      height: 32px;
+    }
+  }
+  ul.nav.navbar-nav.navbar-right {
+    max-height: 50px;
+    float: right;
+    margin: 0 15px;
+    > li.navbar-user {
+      display: inline-block;
+      > a {    
+        margin: 12.5px 0;
+        width: 25px;
+        height: 25px;
+        border: 1px solid @custom-color-white;
+      }
+    }
+    > li.navbar-notice { 
+      display: inline-block;
+      > a {
+        top: -14px;
+        padding: 5px 15px 22px;
+        > .glyphicon {
+          color: darken(@navbar-default-color, 8%);
+
+          &:hover,
+          &:focus {
+            color: darken(@navbar-default-color, 8%);          
+          }
+          &:before {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+    > li.navbar-search {
+      > a {
+        width: 40px;
+        > .glyphicon {
+          color: #fff;
+          &:hover,
+          &:focus {
+            color: #fff;          
+          }
+        }
+      }
+    }
+  }
+} 
+
+@media (max-width:318px) {
+  .navbar-brand {
+    display: none;
+    }
+}
+
+
+  .navbar-collapse.collapsing,.navbar-collapse.collapse.in {
+    > ul.navbar-nav.navbar-left > li > a {
+      margin: 5px 0;
+      padding: 10px 30px;
+      width: 100%;
+      line-height: 20px;
+      text-align: left;
+      font-size: 18px;
+    }
+  }
+
+// Menu position and menu carets
+.navbar-nav > li > .dropdown-menu {
+  margin-top: 0;
+  top: 70px;
+  right: 0px;
+  .border-top-radius(4px);
+  > li > a {
+    cursor: pointer;
+  }
+  &.open {
+    display: block;
+  }
+}
+

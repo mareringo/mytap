@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <section class="login-page card">
+        <div class="login-page-header">
+          <img src="./assets/img/utility/logo_blue.png" alt="">
+          <p>即可加入游戏狂热者的行列</p>
+        </div>
+
+        <div class="login-page-nav">
+          <ul>
+            <li [ngClass]="{'active':isLoginPage}"><a (click)="changeLoginPage()">登录</a></li>
+            <li [ngClass]="{'active':!isLoginPage}"><a (click)="changeLoginPage()">注册</a></li>
+            <span style="display: block; clear: both"></span>
+          </ul>
+        </div>
+
+        <div class="login-page-login" *ngIf="isLoginPage">
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="请输入用户名" [(ngModel)]="login_uname" name="login_uname">
+              <input type="password"  class="form-control" placeholder="请输入密码" [(ngModel)]="login_upwd" name="login_upwd">
+              <button class="btn btn-block btn-primary" (click)="loginClick()">登录</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="login-page-register" *ngIf="!isLoginPage">
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="请输入用户名">
+              <input type="password"  class="form-control" placeholder="请输入密码">
+              <input type="password"  class="form-control" placeholder="请再次输入密码">
+              <button class="btn btn-block btn-primary" onClick="alert('功能正在开发中')">注册</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

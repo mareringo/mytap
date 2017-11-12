@@ -1,0 +1,175 @@
+<app-header></app-header>
+
+<div class="container">
+
+<div class="row">
+  <section class="detail-page-left col-md-8 col-sm-8">
+
+    <section class="detail-header card " *ngIf="detailMsg">
+      <div class="detail-header-icon">
+        <img [src]="detailMsg.gicon_360">
+      </div>
+      <div class="detail-header-text">
+        <h1>{{detailMsg.gname}}</h1>
+        <h2 *ngIf="detailMsg.gname_o">{{detailMsg.gname_o}}</h2>
+        <a onClick="alert('功能正在开发中')">{{detailMsg.gdeveloperName}}</a>
+        <div>
+          <p>{{detailMsg.download_count}}人下载</p>
+          <button class="btn btn-primary" (click)="download(detailMsg.gid)">
+            <span class="glyphicon glyphicon-circle-arrow-down"></span>
+            Andriod
+          </button>
+          <button class="btn btn-primary" (click)="download(detailMsg.gid)">
+            <span class="glyphicon glyphicon-circle-arrow-down"></span>
+            IOS
+          </button>
+        </div>
+      </div>
+      <div class="detail-header-tabs">
+        <ul class="nav nav-pills">
+          <li><a class="active" href="">详情</a></li>
+          <li><a onClick="alert('功能正在开发中')">评价</a></li>
+        </ul>
+      </div>
+      <div class="detail-header-score">
+        <p>{{detailMsg.gscore}}</p>
+      </div>
+    </section>
+
+    <section class="detail-body card" *ngIf="detailMsg">
+        <div class="detail-section" >
+          <div class="piclist">
+            <ul *ngIf="detailMsg.picList.length>0">
+              <li *ngFor="let tmp of detailMsg.picList">
+                <a href="#">
+                  <img [src]="tmp.gimg_sm">
+                </a>
+              </li>
+            </ul>
+          </div>
+            <ul class="glang" *ngIf="detailMsg.glang">
+              <li *ngIf="detailMsg.glang.match('cn')">
+                <i class="glang-cn"></i>
+                <span>简体中文</span>
+              </li>
+              <li *ngIf="detailMsg.glang.match('tw')">
+                <i class="glang-tw"></i>
+                <span>繁体中文</span>
+              </li>
+              <li *ngIf="detailMsg.glang.match('en')">
+                <i class="glang-en"></i>
+                <span>英文</span>
+              </li>
+              <li *ngIf="detailMsg.glang.match('jp')">
+                <i class="glang-jp"></i>
+                <span>日文</span>
+              </li>
+              <li *ngIf="detailMsg.glang.match('ko')">
+                <i class="glang-ko"></i>
+                <span>韩文</span>
+              </li>
+              <span style="display: block; clear: both"></span>
+            </ul>
+        </div>
+
+      <div class="detail-section" *ngIf="detailMsg.gintro_dev!==''">
+        <div><h3>开发者的话</h3></div>
+        <p [innerHTML]="detailMsg.gintro_dev"></p>
+      </div>
+      <div class="detail-section"  *ngIf="detailMsg.gintro_editor!==''">
+        <div><h3>编辑的话</h3></div>
+        <p [innerHTML]="detailMsg.gintro_editor"></p>
+      </div>
+      <div class="detail-section"  *ngIf="detailMsg.gintro!==''">
+        <div><h3>简介</h3></div>
+        <p [innerHTML]="detailMsg.gintro"></p>  
+      </div>
+      <ng-container *ngIf="versonMsg">
+        <div class="detail-section"  *ngIf="versonMsg.vContent!==''">
+          <div><h3>更新内容</h3></div>
+          <p [innerHTML]="versonMsg.vContent"></p>  
+        </div>
+        <div class="detail-section">
+          <div><h3>详细信息</h3></div>
+          <ul class="verson-detail">
+            <li *ngIf="versonMsg.vsize"><h5>文件大小：</h5><p>{{versonMsg.vsize}}MB</p></li>
+            <li *ngIf="versonMsg.vnumber"><h5>当前版本：</h5><p>{{versonMsg.vnumber}}</p></li>
+            <li *ngIf="versonMsg.vdateString"><h5>更新时间：</h5><p>{{versonMsg.vdateString}}</p></li>
+            <li *ngIf="detailMsg.gdeveloperName"><h5>厂商：</h5><p><a onClick="alert('功能正在开发中')">{{detailMsg.gdeveloperName}}</a></p></li>
+            <span style="display: block; clear: both"></span>
+          </ul>  
+        </div>
+    </ng-container>
+    </section>
+
+    <section class="detail-body card"></section>
+
+  </section>
+
+  <section class="detail-page-right col-sm-4 hidden-xs">
+      <section class="social-spread card">
+          <img src="./assets/img/utility/weicharQR.jpg">
+          <div>
+            <div></div>
+            <p>欢迎关注mytap</p>
+            <ul>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+              <li><a href="#"></a></li>
+            </ul>
+          </div>
+      </section>
+
+      <section class="index-reviews" *ngIf="developer.length>0">
+        <div class="section-title">
+          <h3>厂商其他游戏</h3>
+        </div>
+        <div class="detail-more card">
+          <ul class="tap-content">
+            <li *ngFor="let tmp of developer">
+              <a [routerLink]="'/detail/'+tmp.gid">
+                <img [src]="tmp.gicon_100">
+              </a>
+              <div class="item-text">
+                <a [routerLink]="'/detail/'+tmp.gid">{{tmp.gname}}</a>
+                <div>
+                  <span>{{tmp.gscore}}</span>
+                  <span class="glyphicon glyphicon-star"></span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="index-reviews" *ngIf="family.length>0">
+        <div class="section-title">
+          <h3>相关推荐</h3>
+        </div>
+        <div class="detail-more card">
+          <ul class="tap-content">
+            <li *ngFor="let tmp of family">
+              <a [routerLink]="'/detail/'+tmp.gid">
+                <img [src]="tmp.gicon_100">
+              </a>
+              <div class="item-text">
+                <a [routerLink]="'/detail/'+tmp.gid">{{tmp.gname}}</a>
+                <div>
+                  <span>{{tmp.gscore}}</span>
+                  <span class="glyphicon glyphicon-star"></span>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+  </section>
+
+</div>
+
+</div>
+
+<app-footer></app-footer>

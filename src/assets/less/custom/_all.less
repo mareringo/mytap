@@ -1,0 +1,52 @@
+.clearUI:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+body {
+  line-height: 20px;
+  font-size: 14px;
+  background-color: #f2f2f2;
+  transition: all .3s ease;
+}
+ul {
+  list-style: none;
+}
+a {
+  cursor: pointer;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 3px 0 rgba(0,0,0,.15);
+}
+
+.section-title {
+  margin: 0 0 15px;
+  border-bottom: 1px solid #999;
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  > h3 {
+    float: left;
+    margin: 0 0 10px;
+    padding-left: 8px;
+    border-left: 4px solid @main-color;
+    line-height: 20px;
+    font-size: 20px;
+  }
+  > a {
+    float: right;
+    color: @main-color;
+    margin-top: 6px;
+    &:hover {
+      color: @main-color;
+    }
+  }
+}
+
