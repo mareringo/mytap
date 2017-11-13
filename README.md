@@ -6,22 +6,23 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+手动将/data目录移动到apache服务器的htdocs目录下并设置相关路径
 
-## Running unit tests
+## hostName config
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+/data/header_init.php中设置跨域请求头
+/app/utility/service/myHttp.service.ts中设置PHP所在的域名
 
-## Running end-to-end tests
+## database import
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+/sql/mytap.sql为所有数据的脚本文件，导入该文件即可
 
-## Further help
+## database config
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+/data/init.php中设置数据库参数
+
+## 
