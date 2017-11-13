@@ -1,2 +1,0 @@
-1. 将gicon并入mytap_gamelist中，这样在未进入游戏详情，只是在列表中浏览时，不必查询图片表，加快查询速度
-2. 在mytap_gamelist中添加hasvideo列，这样不必对每个游戏都进入视频表中查询，只有hasvideo为true的游戏需要查询视频表，加快查询速度

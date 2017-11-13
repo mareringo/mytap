@@ -26,7 +26,7 @@ export class IndexComponent implements OnInit {
   }
 
   getRecommend(isFirstPage) {
-    this.myHttp.sendRequest('http://127.0.0.1/data/game/recommened.php?pageSize=10&pno=' + this.pno)
+    this.myHttp.sendRequest(this.myHttp.hostName + 'data/game/recommened.php?pageSize=10&pno=' + this.pno)
     .subscribe((result: any) => {
       console.log(result);
       // 判断是否还有更多数据
@@ -50,7 +50,7 @@ export class IndexComponent implements OnInit {
     if (this.indexType === type) {
       return;
     } else {
-      this.myHttp.sendRequest('http://127.0.0.1/data/game/index_tops.php?type=' + type)
+      this.myHttp.sendRequest(this.myHttp.hostName + 'data/game/index_tops.php?type=' + type)
       .subscribe((result: any) => {
         console.log(result);
         this.indexType = type;

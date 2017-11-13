@@ -25,7 +25,7 @@ export class DetailComponent implements OnInit {
   }
 
   getDetailMsg(gid) {
-    this.myHttp.sendRequest('http://127.0.0.1/data/game/detail.php?gid=' + gid)
+    this.myHttp.sendRequest(this.myHttp.hostName + 'data/game/detail.php?gid=' + gid)
     .subscribe((result: any) => {
       console.log('Detail', result);
       this.detailMsg = result;
@@ -35,7 +35,7 @@ export class DetailComponent implements OnInit {
   }
 
   getVersonMsg(gid) {
-    this.myHttp.sendRequest('http://127.0.0.1/data/game/verson.php?gid=' + gid)
+    this.myHttp.sendRequest(this.myHttp.hostName + 'data/game/verson.php?gid=' + gid)
     .subscribe((result: any) => {
       console.log('verson', result);
       result.vdateString = new Date(parseInt(result.vdate, 10)).toLocaleDateString();
@@ -44,7 +44,7 @@ export class DetailComponent implements OnInit {
   }
 
   getDetailMore(type, id) {
-    this.myHttp.sendRequest('http://127.0.0.1/data/game/detail_more.php?type=' + id)
+    this.myHttp.sendRequest(this.myHttp.hostName + 'data/game/detail_more.php?type=' + id)
     .subscribe((result: any) => {
       console.log(type, result);
       this[type] = result;
@@ -52,7 +52,7 @@ export class DetailComponent implements OnInit {
   }
 
   download(gid) {
-    this.myHttp.sendRequest('http://127.0.0.1/data/game/download.php?gid=' + gid)
+    this.myHttp.sendRequest(this.myHttp.hostName + 'data/game/download.php?gid=' + gid)
     .subscribe((result: any) => {
       console.log(result);
       if (result.code === 200) {

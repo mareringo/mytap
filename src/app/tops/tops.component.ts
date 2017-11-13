@@ -30,7 +30,7 @@ export class TopsComponent implements OnInit {
     }else if (isTypeChange) {
       return;
     }
-      this.myHttp.sendRequest('http://127.0.0.1/data/game/tops.php?type=' + type + '&family=' + family + '&pno=' + this.pno)
+      this.myHttp.sendRequest(this.myHttp.hostName + 'data/game/tops.php?type=' + type + '&family=' + family + '&pno=' + this.pno)
       .subscribe((result: any) => {
         console.log(result);
         if (this.pno === result.pageCount) {

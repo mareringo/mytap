@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     if (this.login_uname === '' || this.login_upwd === '') {
       window.alert('用户名或密码不能为空');
     }else {
-      this.myHttp.sendRequest('http://127.0.0.1/data/user/login.php?uname=' + this.login_uname + '&upwd=' + this.login_upwd)
+      this.myHttp.sendRequest(this.myHttp.hostName + 'data/user/login.php?uname=' + this.login_uname + '&upwd=' + this.login_upwd)
       .subscribe((result: any) => {
         console.log(result);
         if (result.code === 200) {

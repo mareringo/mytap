@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
   checkUserLogin() {
     // 向服务器端发起请求，请求user/session_data.php
     // 根据返回的uid是否是一个有效的值，去做判断处理
-    this.myHttp.sendRequest('http://127.0.0.1/data/user/session_data.php')
+    this.myHttp.sendRequest(this.myHttp.hostName + 'data/user/session_data.php')
     .subscribe((data: any) => {
       console.log(data);
       if (data.uid) {
@@ -66,7 +66,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.myHttp.sendRequest('http://127.0.0.1/data/user/logout.php')
+    this.myHttp.sendRequest(this.myHttp.hostName + 'data/user/logout.php')
     .subscribe((data: any) => {
       console.log(data);
       this.myCookie.clearCookie('loginId');
